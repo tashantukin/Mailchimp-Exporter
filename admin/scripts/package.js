@@ -115,10 +115,12 @@
             }
 
    }
-
     $(document).ready(function() {
-        $('#sync').addClass('disabled');
-        DisableButton();
+        if ($('#client-secret').val() == ' '){
+            console.log('yea h yeah');
+            $('#sync').addClass('disabled');
+        }
+        // DisableButton();
         var getItem = localStorage.getItem("SyncSuccess");
         if (getItem === "Yes"){
             $('.mailchampk-sync-msg').removeClass("hide");

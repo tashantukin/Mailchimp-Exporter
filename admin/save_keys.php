@@ -3,7 +3,6 @@ include 'callAPI.php';
 include 'admin_token.php';
 include 'MailChimp.php';
 use \DrewM\MailChimp\MailChimp;
-
 $contentBodyJson = file_get_contents('php://input');
 $content = json_decode($contentBodyJson, true);
 
@@ -53,7 +52,7 @@ foreach ($packageCustomFields as $cf) {
         $mailchimpClientSecretCustomField = $cf['Code'];     
     }
     //added for default last/first names
-   if ($cf['Name'] == 'Default Lastname' && substr($cf['Code'], 0, strlen($customFieldPrefix)) == $customFieldPrefix) {
+    if ($cf['Name'] == 'Default Lastname' && substr($cf['Code'], 0, strlen($customFieldPrefix)) == $customFieldPrefix) {
         $def_lastname = $cf['Code'];
 }
 

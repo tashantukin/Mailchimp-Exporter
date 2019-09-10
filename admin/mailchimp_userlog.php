@@ -117,12 +117,12 @@ $user_role = $userData[0]['operation_id'];
                   error_log('caught exception ' . $e);
                   }
             }
-            echo  "</tbody>";
-            echo "</table>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
+              echo  "</tbody>";
+              echo "</table>";
+              echo "</div>";
+              echo "</div>";
+              echo "</div>";
+              echo "</div>";
 ?>
               </div>
             </div>

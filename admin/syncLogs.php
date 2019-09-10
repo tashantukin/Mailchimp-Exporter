@@ -20,7 +20,6 @@ function getSecretKey(){
     $baseUrl = getMarketplaceBaseUrl(); 
     $url = $baseUrl . '/api/v2/marketplaces/';
     $marketplaceInfo = callAPI("GET", $admin_token['access_token'], $url, false);
-    
     foreach ($marketplaceInfo['CustomFields'] as $cf) {
         if ($cf['Name'] == 'Mailchimp Client Secret' && substr($cf['Code'], 0, strlen($customFieldPrefix)) == $customFieldPrefix) {
             $clientsecret = $cf['Values'][0];
@@ -29,7 +28,6 @@ function getSecretKey(){
         if ($clientsecret == ''){
             $clientsecret =  '28e6d387e671c1ffe2ec41631bbd8386-us20';
         }
-    
     }
     return $clientsecret;
 }
@@ -285,7 +283,6 @@ function getAllBatches() {
     // log all the batches for debugging
     error_log('synced all batches' .$batches);
     return $get_all_batch;
-   
 }
 
 //TOTAL COUNTS FOR CONSUMER / MERCHANTS BATCHES ======================================================================

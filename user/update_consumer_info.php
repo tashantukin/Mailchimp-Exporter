@@ -7,28 +7,19 @@ use \DrewM\MailChimp\MailChimp;
 $admin_token = getAdminToken();
 $customFieldPrefix = getCustomFieldPrefix();
 $baseUrl = getMarketplaceBaseUrl();
-
 $contentBodyJson = file_get_contents('php://input');
 $content = json_decode($contentBodyJson, true);
-
 $username =  $content['username'];
 $email = $content['email'];
-error_log($email);
 $userId = $content['userId'];
-error_log( 'userid  '  .json_encode($userId));
 $clientSecret = '';
 
 //FOR TIMEZONES - POSTING LAST SYNC DETAILS   02/11/19 
 $timezone = $content['timezone'];  // $_GET['timezone_offset_minutes']
-error_log('This is the timezone' .$timezone);
 // Convert minutes to seconds
 $timezone_name = timezone_name_from_abbr("", $timezone*60, false);
-error_log($timezone);
-error_log($timezone_name);
 date_default_timezone_set($timezone_name);
 $timestamp = date("d/m/Y H:i"); 
-//error_log($timestamp);
-
 
 //the the API key 
 $url = $baseUrl . '/api/v2/marketplaces/';
@@ -56,9 +47,7 @@ foreach ($marketplaceInfo['CustomFields'] as $cf) {
         error_log('Sync id '. $single_sync_id);
     }
 
-
 }
-
 
 //values of List ID's
 $MailChimp = new MailChimp($clientSecret);
@@ -97,8 +86,8 @@ $data = [
     'singleID' => $single_sync_id,
     'email'     =>  $email,
     'status'    => 'subscribed',
-    'firstname' =>  $default_firstname,  // get  firstname to custom fields
-    'lastname'  =>  $default_lastname    // get lastname to custom fields
+    'firstname' =>  $default_firstname, 
+    'lastname'  =>  $default_lastname   
 ];
 
 //sync new consumer data
