@@ -25,7 +25,6 @@
     }
 
     function syncData(){
-
         getMarketplaceCustomFields(function(result) {
             $.each(result, function(index, cf) {
                 if (cf.Name == 'Merchant ID' && cf.Code.startsWith(customFieldPrefix)) {
@@ -50,9 +49,7 @@
                     toastr.success('Emails successfully synced.');
                     localStorage.setItem("SyncSuccess", "Yes");
                     location.reload();
-
-                }
-                                 
+                }                     
             });
         });       
     }
@@ -105,16 +102,16 @@
     }
 
     function DisableButton()
-   {
-       var sync = document.getElementById('sync');
-       var apikey = document.getElementById('client-secret');
-       var sync = document.getElementById('sync');
-         if ( apikey.value.length = 0)
-           {
-              sync.Disable = true;
-            }
+        {
+            var sync = document.getElementById('sync');
+            var apikey = document.getElementById('client-secret');
+            var sync = document.getElementById('sync');
+                if ( apikey.value.length = 0)
+                {
+                    sync.Disable = true;
+                    }
 
-   }
+        }
     $(document).ready(function() {
         if ($('#client-secret').val() == ' '){
             console.log('yea h yeah');

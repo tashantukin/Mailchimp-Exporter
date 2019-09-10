@@ -26,7 +26,7 @@ function getSecretKey(){
             error_log('Mailchimp API KEY ' . $clientsecret);
         }
         if ($clientsecret == ''){
-            $clientsecret =  '28e6d387e671c1ffe2ec41631bbd8386-us20';
+            $clientsecret =  '';
         }
     }
     return $clientsecret;
